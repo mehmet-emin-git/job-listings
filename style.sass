@@ -1,0 +1,243 @@
+// google font
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap');
+
+// color variables
+$desaturated-dark-cyan: hsl(180, 29%, 50%)
+$light-grayish-bg : hsl(180, 52%, 96%) // (Background)
+$light-grayish-filter : hsl(180, 31%, 95%) // (Filter Tablets)
+$dark-grayish-cyan: hsl(180, 8%, 52%)
+$very-dark-grayish-cyan: hsl(180, 14%, 20%)
+
+*,*::before, *::after
+  box-sizing: border-box
+
+body
+  font-family: 'Spartan', sans-serif
+  font-size: 15px
+  margin: 0
+  background: $light-grayish-bg
+
+.container
+  max-width: 1180px
+  margin: 0 auto
+  padding: 0 2rem 2rem
+
+.badge
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  color: white
+  font-size: .65rem
+  padding: .4rem .5rem
+  font-weight: 700
+  border-radius: 30px
+  line-height: 1em
+  margin-left: .3rem
+
+.featured
+  border-left: 6px solid $desaturated-dark-cyan
+
+.new
+  @extend .badge
+  background: $desaturated-dark-cyan
+.feature
+  @extend .badge
+  background: #333
+
+
+header
+  min-height: 155px
+  width: 100%
+  background: url('./images/bg-header-desktop.svg') no-repeat center / cover
+  background-color: $desaturated-dark-cyan
+
+.search
+  width: 100%
+  height: auto
+  min-height: 70px
+  padding: 20px 40px
+  background: white
+  border-radius: 7px
+  box-shadow: 0 10px 15px -7px rgba($desaturated-dark-cyan, .5)
+  margin-top: -36px
+  opacity: 1
+  display: flex
+  justify-content: space-between
+  transition: opacity .5s
+
+  &__hidden
+    opacity: 0
+
+  &__clear
+    margin-left: 50px
+    background-color: transparent
+    border: none
+    font-size: 14px
+    color: $desaturated-dark-cyan
+    font-weight: 700
+    outline: none
+    cursor: pointer
+
+    &:hover
+      text-decoration: underline;
+
+.jobs
+  margin-top: 36px
+  width: 100%
+  height: auto
+  display: grid
+  grid-row-gap: 25px
+  
+  &__item
+    width: 100%
+    height: auto
+    padding: 35px 40px
+    background-color: #fff
+    border-radius: 7px
+    box-shadow: 0px 10px 15px -7px rgba(93,164,164,0.5)
+    box-sizing: border-box
+    display: flex
+    justify-content: space-between
+
+  &__column
+    display: flex
+    align-items: center
+
+  &__img
+    width: 90px
+    height: auto
+
+  &__info
+    margin-left: 25px
+    width: auto
+
+  &__company
+    color: #40A5A4
+    font-size: 14px
+    display: inline-block
+    font-weight: 700
+    margin-bottom: 15px
+    margin-right: .5rem
+
+  &__title
+    color: $very-dark-grayish-cyan
+    font-size: 18px
+    font-weight: 700
+    display: block
+    margin-bottom: 15px
+    cursor: pointer
+    transition: .2s ease-out color
+
+    &:hover
+      color: $desaturated-dark-cyan
+
+  &__details
+    margin: 0
+    padding: 0
+
+  &__details-item
+    display: inline-block
+    color: $dark-grayish-cyan
+    font-size: 15px
+
+  &__details-item
+    &::after
+      content: ""
+      width: 3px
+      height: 3px
+      border-radius: 3px
+      background-color: $dark-grayish-cyan
+      display: inline-block
+      margin: 5px 15px
+
+
+  &__details-item
+    &:last-child::after
+      display: none
+
+.tag, .close-tag
+  display: inline-block
+  width: auto
+  height: auto
+  padding: 8px 7px
+  border-radius: 5px
+  background-color: $light-grayish-filter
+  font-weight: 700
+  font-size: 13px
+  color: $desaturated-dark-cyan
+  margin: 7.5px 10px
+  cursor: pointer
+  transition: .2s ease-out all
+  position: relative
+
+  &:hover, &--active
+    background-color: $desaturated-dark-cyan
+    color: #fff
+
+.close-tag
+  padding-right: 45px
+  &:hover::after
+    background-color: $very-dark-grayish-cyan
+
+  &::after
+    content: ""
+    display: block
+    width: 35px
+    height: 100%
+    position: absolute
+    right: 0
+    top: 0
+    background-image: url('./images/icon-remove.svg')
+    background-color: $desaturated-dark-cyan
+    background-position: center
+    background-size: 15px
+    background-repeat: no-repeat
+    border-top-right-radius: 5px
+    border-bottom-right-radius: 5px
+
+.close-tag:hover::after
+  background-color: $very-dark-grayish-cyan
+    
+
+
+@media (max-width: 1120px)
+  .search
+    margin-bottom: 50px
+
+    &__clear
+      margin-left: 20px
+
+  .jobs
+    grid-row-gap: 50px
+    &__item
+      flex-wrap: wrap
+  
+    &__info
+      margin-left: 0
+      width: 100%
+
+    &__details
+      &-item
+        font-size: 13px     
+
+    &__column
+      justify-content: flex-start
+      flex: 0 1 100%
+      flex-wrap: wrap      
+
+    &__column--left
+      border-bottom: #ABABAB solid 1px
+      margin-bottom: 20px
+      padding-bottom: 20px
+    
+    &__column--right
+      width: 100%
+      justify-content: flex-start
+      flex: 0 1 100%
+      flex-wrap: wrap
+      margin-left: -5px
+  
+    &__img
+      width: 50px
+      margin-top: calc(-35px - 25px)
+      margin-bottom: 20px
